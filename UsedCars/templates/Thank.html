@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Congrats
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mx-auto" style="margin-top:5rem; margin-bottom:18.7rem;">
+        <div class="col-sm-12">
+            <div class="shadow card text-center" style="height:14rem; width:55rem; padding-top:2.75rem; margin-left:12rem; margin-right:15rem;">
+                <div class="card-content">
+                    <h2><b>Congrats, you are almost at fulfilling your dream</b></h2>
+                    <h4>We will get back to shortly</h4>
+                    <p>For enquiries reach out to our Customer Support : (+91) 9809227436</p>
+                    <a class="btn btn-primary" href="{% url 'carapp:allProdCat' %}" style="color:black;" role="button">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

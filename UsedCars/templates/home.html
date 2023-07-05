@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+    Find your dream car at the best price.
+{% endblock %}
+
+{% block title %}
+  {% if category %}
+    {{category.name}} - Dream Car
+  {% else %}
+    Home
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% if category %}
+    <div class="container">
+      <div>
+        <img src="{{category.image.url}}" width="100%" alt="{{category.name}}">
+        <h1 class="text-center"><b>Your dream {{category.name}}s</b></h1><br>
+        <h4>{{category.description}}</h4>
+      </div>
+    </div>
+  {% else %}
+    <div>
+      <div>
+        <img src="{% static 'images/usedcar_banner.png' %}" width="100%" height="633em" alt="Our Cars">
+        <h1 class="text-justify">Choose your dream Car</h1>
+      </div>
+    </div>
+  {% endif %}
+<br>
+<br>
+
+<!--Car collections-->
+
+<div class="container">
+    <div class="row mx-auto">
+        {% for car in cars %}
+        <div class="col-sm-6" style="margin-bottom:25px;">
+            <div class="shadow card text-center">
+                <div class="card-img-top">
+                  <a href="{{car.get_url}}"><img src="{{car.image1.url}}" width="230px" height="220px" alt="{{car.name}}"></a>
+                </div>
+            <div class="card-body">
+                <h4>{{car.name}}</h4>
+                <p>Rs. {{car.price}} Lakhs</p>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+<!--paginator  -->
+
+    <div class="mx-auto">
+      {% if cars.paginator.num_pages > 1 %}
+      <hr>
+      <div class="text-center">
+          {% for pg in cars.paginator.page_range %}
+              <a href="?page={{pg}}" class="btn btn-light btn-sm {% if cars.numbers == pg %} active {% endif %}"> {{pg}}</a>
+          {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+</div>
+
+{% endblock %}

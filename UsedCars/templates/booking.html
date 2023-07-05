@@ -1,0 +1,68 @@
+{% load static %}
+
+<title>
+  Test Drive Booking
+</title>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/booking.css' %}">
+</head>
+
+<body>
+    <h1 style="text-align:center;">Fill your details</h1>
+    <h3 style="text-align:center;">We will get back to you shortly</h3>
+  <form action="" method="POST" >
+      {% csrf_token %}
+		<label for="name">Name:</label><br>
+		<input type="text" id="name" name="name" required><br>
+
+		<label for="email">Email:</label><br>
+		<input type="email" id="email" name="email" required><br>
+
+		<label for="phone">Phone Number:</label><br>
+		<input type="tel" id="phone" name="phone" value="+91 " maxlength="14" required><br>
+
+		<label for="district">District:</label><br>
+		<select id="district" name="district">
+            <option value="">--Select District--</option>
+            <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+            <option value="Kollam">Kollam</option>
+            <option value="Pathanamthitta">Pathanamthitta</option>
+            <option value="Alappuzha">Alappuzha</option>
+            <option value="Kottayam">Kottayam</option>
+            <option value="Idukki">Idukki</option>
+            <option value="Ernakulam">Ernakulam</option>
+            <option value="Thrissur">Thrissur</option>
+            <option value="Palakkad">Palakkad</option>
+            <option value="Malappuram">Malappuram</option>
+            <option value="Kozhikode">Kozhikode</option>
+            <option value="Wayanad">Wayanad</option>
+            <option value="Kannur">Kannur</option>
+            <option value="Kasaragod">Kasaragod</option>
+        </select><br>
+
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date" required><br>
+
+        <label>Choose the Car:</label><br>
+        <select name="car_option">
+              <option value="{{ car.name }}" selected>{{car.brand}} {{ car.name }}</option>
+        </select><br>
+
+		<input type="submit" value="Submit">
+        <br><br>
+<!--        <button onclick=location.href="/">Home</button>-->
+            <a class="btn btn-primary" href="{% url 'carapp:allProdCat' %}" style="color:black;" role="button">Home</a>
+
+	</form>
+
+<!--<script>-->
+<!--  function submitForm() {-->
+<!--    var name = document.getElementById("name").value;-->
+<!--    alert("Hai " + name + ", your test drive booking is success");-->
+
+<!--  }-->
+<!--</script>-->
+
+</body>
+

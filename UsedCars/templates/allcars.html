@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{%load static %}
+
+{% block title %}
+All Dream Cars
+{% endblock %}
+
+{% block content %}
+
+<div class="container fluid">
+    <div class="row mx-auto">
+        <div class="text-center">
+            <h2>Dreams do come true</h2>
+            <pre>&nbsp;</pre>
+        </div>
+
+        {% for car in allcars %}
+        <div class="col-sm-6">
+            <div class="shadow card text-center">
+                <div class="card-img-top">
+                    <a href="{{car.get_url}}"><img src="{{car.image.url}}" width="380px" height="220px" alt="{{car.name}}"> </a>
+                </div>
+                <div class="card-body" style="text-transform:uppercase; font-family:Arial Black;">
+                    <h4><b>{{car.name}}</b></h4>
+                <div>
+                    <pre style="font-size:19px; font-weight:bold; font-family:Franklin Gothic Medium; text-transform:capitalize;">Rs. {{car.price}} Lakh</pre>
+                </div>
+                    <br>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+        {% endfor %}
+    </div>
+        <div class="mx-auto">
+            {% if allcars.paginator.num_pages > 1 %}
+            <hr>
+            <div class="text-center">
+                {% for pg in allcars.paginator.page_range %}
+                    <a href="?page={{pg}}" class="btn btn-light btn-sm {% if allcars.number == pg %} active {% endif %}">{{pg}}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+</div>
+
+{% endblock %}

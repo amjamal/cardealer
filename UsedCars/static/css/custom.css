@@ -1,0 +1,56 @@
+body {
+    font-family: 'Dancing Script', cursive;
+}
+
+/***Navbar***/
+.nav-item {
+    letter-spacing : .2em;
+    font-size : 14px;
+    text-transform : uppercase;
+}
+
+.dropdown-item {
+    letter-spacing : .2em;
+    font-size : 14px;
+    text-transform : uppercase;
+}
+
+.my_footer {
+    background-color:grey;
+    height:60px;
+}
+
+.my_footer p{
+    padding-top:20px;
+    font-size:16px;
+    font-family: 'Lato', sans-serif;
+}
+
+/*** category page ***/
+.my_row_class {
+    padding-top:15px;
+}
+.my_row_class mx_auto {
+    color:#FF0000;
+    font-size:12px;
+}
+.my_image {
+    width:280px;
+    height:200px;
+}
+.my_title {
+    font-size:26px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-family: 'Lato', sans-serif;
+
+}
+.card-body {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+}
+.my_search_text {
+    padding-top:20px;
+}
+
